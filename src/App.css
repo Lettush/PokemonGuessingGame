@@ -5,6 +5,7 @@
 }
 
 body {
+  font-family: Pokemon;
   width: 100%;
   height: 100%;
   background-image: url("https://www.wallpaperflare.com/static/933/827/743/pok%C3%A9mon-pixel-art-green-grass-wallpaper.jpg");
@@ -18,6 +19,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 20%;
+  filter: drop-shadow(5px 5px 10px #000000);
 }
 
 .container {
@@ -27,13 +29,26 @@ body {
   justify-content: center;
 }
 
+.pokemonInfo {
+  margin: 0;
+}
+
+.gameStats {
+  color: white;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 20px;
+  width: 30%;
+  background-color: #1f1f1f5c;
+}
+
 form {
-    display: inline-block;
+  display: inline-block;
 }
 
 .type {
   position: relative;
-  top: -140px;
+  /* top: -140px; */
   font-family: Pokemon;
   font-size: 30px;
   text-align: center;
@@ -149,13 +164,4 @@ form {
   background-color: #ff65d5;
   box-shadow: -2px 0 0 0 #ff65d5, 2px 0 0 0 #ff65d5, 0 -2px 0 0 #ffc5ff,
     0 2px 0 0 #a26173;
-}
-
-.shadow {
-  z-index: -1;
-  position: relative;
-  top: -90px;
-  width: 250px;
-  margin: auto;
-  filter: brightness(30%) blur(5px) opacity(50%);
 }

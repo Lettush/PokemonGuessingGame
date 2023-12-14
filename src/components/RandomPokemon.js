@@ -5,6 +5,13 @@ const RandomPokemon = () => {
   const [pokemonTypes, setPokemonTypes] = useState();
   const [pokemonImage, setPokemonImage] = useState();
   const [score, setScore] = useState(0);
+  const [message, setMessage] = useState("");
+
+  function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    });
+  }
 
   const generateRandom = async () => {
     const response = await fetch(
@@ -27,10 +34,20 @@ const RandomPokemon = () => {
 
   const checkAnswer = (e) => {
     e.preventDefault();
-    const answer = document.forms["guessingForm"]
-    if (answer.elements["answer"].value.toLowerCase() === pokemonName.toLowerCase()) {
+    const answer = document.forms["guessingForm"];
+    const message = document.querySelector("#message");
+    if (
+      answer.elements["answer"].value.toLowerCase() ===
+      pokemonName.toLowerCase()
+    ) {
       setScore(score + 1);
-    }
+      setMessage(`Correct! It was ${toTitleCase(pokemonName)}!`);
+      message.classList.remove("incorrect")
+      message.classList.add("correct")
+    } else setMessage(`Incorrect... It was ${toTitleCase(pokemonName)}!`);
+
+    answer.elements["answer"].value = "";
+    generateRandom();
   };
 
   useEffect(() => {
@@ -41,28 +58,40 @@ const RandomPokemon = () => {
     <div>
       {pokemonTypes && (
         <div className="container">
-          <img src={pokemonImage} alt={pokemonName} className="pokemonImage" />
-          <img
-            src={window.location.origin + "/img/shadow.png"}
-            alt="shadow"
-            className="shadow"
-          />
-          {/* <h1 className="pokemonName">{pokemonName}</h1> */}
-          <p>
-            {pokemonTypes.map((type) => {
-              return (
-                <span className={type.type.name + " type"} key={type.type.name}>
-                  {type.type.name.toUpperCase()}
-                </span>
-              );
-            })}
-          </p>
-          <h1 id="score">Score: {score}</h1>
-          <form name="guessingForm" onSubmit={checkAnswer}>
-            <label htmlFor="answer">Guess the Pokemon!</label><br />
-            <input type="text" name="answer" id="answer"/><br />
-            <input type="submit" value="Submit" />
-          </form>
+          <div className="pokemonInfo">
+            <div className="pokemonPhoto">
+              <img
+                src={pokemonImage}
+                alt={pokemonName}
+                className="pokemonImage"
+              />
+            </div>
+            <p>
+              {pokemonTypes.map((type) => {
+                return (
+                  <span
+                    className={type.type.name + " type"}
+                    key={type.type.name}
+                  >
+                    {type.type.name.toUpperCase()}
+                  </span>
+                );
+              })}
+            </p>
+          </div>
+
+          {message && <h2 id="message">{message}</h2>}
+
+          <div className="gameStats">
+            <h1 id="score">Score: {score}</h1>
+            <form name="guessingForm" onSubmit={checkAnswer}>
+              <label htmlFor="answer">Guess the Pokemon!</label>
+              <br />
+              <input type="text" name="answer" id="answer" />
+              <br />
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
         </div>
       )}
     </div>
