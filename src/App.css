@@ -1,0 +1,161 @@
+@font-face {
+  font-family: Pokemon;
+  src: url(./fonts/pokemon_pixel_font.ttf) format("truetype"),
+    url(./fonts/pokemon_pixel_font.woff) format("woff");
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-image: url("https://www.wallpaperflare.com/static/933/827/743/pok%C3%A9mon-pixel-art-green-grass-wallpaper.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pokemonImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form {
+    display: inline-block;
+}
+
+.type {
+  position: relative;
+  top: -140px;
+  font-family: Pokemon;
+  font-size: 30px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 0px rgb(87, 87, 87);
+  padding: 0px 2px;
+  margin: 5px;
+}
+
+.normal {
+  background-color: #a8a878;
+  box-shadow: -2px 0 0 0 #a8a878, 2px 0 0 0 #a8a878, 0 -2px 0 0 #d0d0b4,
+    0 2px 0 0 #958575;
+}
+
+.fire {
+  background-color: #f08030;
+  box-shadow: -2px 0 0 0 #f08030, 2px 0 0 0 #f08030, 0 -2px 0 0 #f8d030,
+    0 2px 0 0 #c03028;
+}
+
+.fighting {
+  background-color: #c03028;
+  box-shadow: -2px 0 0 0 #c03028, 2px 0 0 0 #c03028, 0 -2px 0 0 #e8732f,
+    0 2px 0 0 #7b3931;
+}
+
+.water {
+  background-color: #6185d8;
+  box-shadow: -2px 0 0 0 #6185d8, 2px 0 0 0 #6890ef, 0 -2px 0 0 #a4befc,
+    0 2px 0 0 #526fb3;
+}
+
+.flying {
+  background-color: #a890f0;
+  box-shadow: -2px 0 0 0 #a890f0, 2px 0 0 0 #a890f0, 0 -2px 0 0 #c8c0f8,
+    0 2px 0 0 #7961a6;
+}
+
+.grass {
+  background-color: #67ae44;
+  box-shadow: -2px 0 0 0 #67ae44, 2px 0 0 0 #67ae44, 0 -2px 0 0 #a0d545,
+    0 2px 0 0 #669f47;
+}
+
+.poison {
+  background-color: #a040a0;
+  box-shadow: -2px 0 0 0 #a040a0, 2px 0 0 0 #a040a0, 0 -2px 0 0 #cf76b4,
+    0 2px 0 0 #483850;
+}
+
+.electric {
+  background-color: #f8d030;
+  box-shadow: -2px 0 0 0 #f8d030, 2px 0 0 0 #f8d030, 0 -2px 0 0 #f8e759,
+    0 2px 0 0 #b8a038;
+}
+
+.ground {
+  background-color: #e0c068;
+  box-shadow: -2px 0 0 0 #e0c068, 2px 0 0 0 #e0c068, 0 -2px 0 0 #eee071,
+    0 2px 0 0 #886830;
+}
+
+.psychic {
+  background-color: #e85c85;
+  box-shadow: -2px 0 0 0 #e85c85, 2px 0 0 0 #e85c85, 0 -2px 0 0 #f8949f,
+    0 2px 0 0 #a15f66;
+}
+
+.rock {
+  background-color: #b8a038;
+  box-shadow: -2px 0 0 0 #b8a038, 2px 0 0 0 #b8a038, 0 -2px 0 0 #dabb60,
+    0 2px 0 0 #9c8033;
+}
+
+.ice {
+  background-color: #98d8d8;
+  box-shadow: -2px 0 0 0 #98d8d8, 2px 0 0 0 #98d8d8, 0 -2px 0 0 #d0f8e8,
+    0 2px 0 0 #9090a0;
+}
+
+.bug {
+  background-color: #a8b820;
+  box-shadow: -2px 0 0 0 #a8b820, 2px 0 0 0 #a8b820, 0 -2px 0 0 #c3cf29,
+    0 2px 0 0 #789010;
+}
+
+.dragon {
+  background-color: #7038f8;
+  box-shadow: -2px 0 0 0 #7038f8, 2px 0 0 0 #7038f8, 0 -2px 0 0 #ac8ff8,
+    0 2px 0 0 #483890;
+}
+
+.ghost {
+  background-color: #705898;
+  box-shadow: -2px 0 0 0 #705898, 2px 0 0 0 #705898, 0 -2px 0 0 #a890f0,
+    0 2px 0 0 #483850;
+}
+
+.dark {
+  background-color: #705848;
+  box-shadow: -2px 0 0 0 #705848, 2px 0 0 0 #705848, 0 -2px 0 0 #a8a878,
+    0 2px 0 0 #484038;
+}
+
+.steel {
+  background-color: #b8b8d0;
+  box-shadow: -2px 0 0 0 #b8b8d0, 2px 0 0 0 #b8b8d0, 0 -2px 0 0 #cacac7,
+    0 2px 0 0 #807870;
+}
+
+.fairy {
+  background-color: #ff65d5;
+  box-shadow: -2px 0 0 0 #ff65d5, 2px 0 0 0 #ff65d5, 0 -2px 0 0 #ffc5ff,
+    0 2px 0 0 #a26173;
+}
+
+.shadow {
+  z-index: -1;
+  position: relative;
+  top: -90px;
+  width: 250px;
+  margin: auto;
+  filter: brightness(30%) blur(5px) opacity(50%);
+}
