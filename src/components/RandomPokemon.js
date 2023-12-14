@@ -5,7 +5,9 @@ const RandomPokemon = () => {
   const [pokemonTypes, setPokemonTypes] = useState();
   const [pokemonImage, setPokemonImage] = useState();
   const [score, setScore] = useState(0);
-  const [message, setMessage] = useState("");
+  const [gameStarted, setGameStarted] = useState(false);
+  const [lives, setLives] = useState();
+  const [gamePlayed, setGamePlayed] = useState(false);
 
   function toTitleCase(str) {
     return str.replace(/\w\S*/g, function (txt) {
@@ -32,19 +34,41 @@ const RandomPokemon = () => {
       .catch((e) => console.error(e.message));
   };
 
+  const gameOver = () => {
+    setGamePlayed(true);
+    setGameStarted(false);
+  };
+
+  const removeLife = () => {
+    if (lives === 1) return gameOver();
+    setLives(lives - 1);
+    let life = document.querySelector(`#lives img:nth-child(${lives})`);
+    life.style.filter = "grayscale(100%)";
+  };
+
   const checkAnswer = (e) => {
     e.preventDefault();
     const answer = document.forms["guessingForm"];
     const message = document.querySelector("#message");
+    message.style.display = "block";
     if (
       answer.elements["answer"].value.toLowerCase() ===
       pokemonName.toLowerCase()
     ) {
       setScore(score + 1);
-      setMessage(`Correct! It was ${toTitleCase(pokemonName)}!`);
-      message.classList.remove("incorrect")
-      message.classList.add("correct")
-    } else setMessage(`Incorrect... It was ${toTitleCase(pokemonName)}!`);
+      message.innerHTML = `<img src="/images/check.png" class="icon" /> <span>Correct! It was ${toTitleCase(
+        pokemonName
+      )}!</span>`;
+      message.classList.add("correct");
+      message.classList.remove("incorrect");
+    } else {
+      message.innerHTML = `<img src="/images/cross.png" class="icon" /> <span>Incorrect... It was ${toTitleCase(
+        pokemonName
+      )}!</span>`;
+      removeLife();
+      message.classList.add("incorrect");
+      message.classList.remove("correct");
+    }
 
     answer.elements["answer"].value = "";
     generateRandom();
@@ -52,46 +76,78 @@ const RandomPokemon = () => {
 
   useEffect(() => {
     generateRandom();
+    setLives(3);
   }, []);
 
   return (
     <div>
-      {pokemonTypes && (
-        <div className="container">
-          <div className="pokemonInfo">
-            <div className="pokemonPhoto">
-              <img
-                src={pokemonImage}
-                alt={pokemonName}
-                className="pokemonImage"
-              />
+      {gameStarted ? (
+        pokemonTypes && (
+          <div className="container">
+            <div className="pokemonInfo">
+              <div className="pokemonPhoto">
+                <img
+                  src={pokemonImage}
+                  alt={pokemonName}
+                  className="pokemonImage"
+                />
+              </div>
+              <p>
+                {pokemonTypes.map((type) => {
+                  return (
+                    <span
+                      className={type.type.name + " type"}
+                      key={type.type.name}
+                    >
+                      {type.type.name.toUpperCase()}
+                    </span>
+                  );
+                })}
+              </p>
             </div>
-            <p>
-              {pokemonTypes.map((type) => {
-                return (
-                  <span
-                    className={type.type.name + " type"}
-                    key={type.type.name}
-                  >
-                    {type.type.name.toUpperCase()}
-                  </span>
-                );
-              })}
-            </p>
-          </div>
 
-          {message && <h2 id="message">{message}</h2>}
+            <div className="box">
+              <h2 id="message" style={{ display: "none" }}></h2>
+            </div>
 
-          <div className="gameStats">
-            <h1 id="score">Score: {score}</h1>
-            <form name="guessingForm" onSubmit={checkAnswer}>
-              <label htmlFor="answer">Guess the Pokemon!</label>
-              <br />
-              <input type="text" name="answer" id="answer" />
-              <br />
-              <input type="submit" value="Submit" />
-            </form>
+            <div className="gameStats">
+              <div id="lives">
+                <img src="/images/heart.webp" />
+                <img src="/images/heart.webp" />
+                <img src="/images/heart.webp" />
+              </div>
+              <h1 id="score">Score: {score}</h1>
+              <form name="guessingForm" onSubmit={checkAnswer}>
+                <input
+                  type="text"
+                  name="answer"
+                  id="answer"
+                  placeholder="Guess..."
+                />
+                <br />
+                <input type="submit" value="Submit" />
+              </form>
+            </div>
           </div>
+        )
+      ) : (
+        <div className="container">
+          <h1 id="header">
+            {gamePlayed ? (
+              <span>Your score was {score}.</span>
+            ) : (
+              <span>Pokemon Guessing Game</span>
+            )}
+          </h1>
+          <button
+            className={gamePlayed ? "restart" : "start"}
+            id="start"
+            onClick={() => {
+              setGameStarted(true);
+            }}
+          >
+            {gamePlayed ? <span>Play again?</span> : <span>Start Game</span>}
+          </button>
         </div>
       )}
     </div>

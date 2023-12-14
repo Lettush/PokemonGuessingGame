@@ -29,6 +29,37 @@ body {
   justify-content: center;
 }
 
+.container button {
+  display: inline-block;
+  border-radius: 20px;
+  width: 150px;
+  margin: auto;
+  font-family: Pokemon;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.start {
+  background: linear-gradient(
+    180deg,
+    rgba(49, 205, 22, 1) 0%,
+    rgba(9, 121, 30, 1) 82%,
+    rgba(49, 89, 57, 1) 100%
+  );
+  color: white;
+}
+
+.restart {
+  background: linear-gradient(
+    180deg,
+    rgba(213, 183, 7, 1) 0%,
+    rgba(180, 158, 29, 1) 82%,
+    rgba(122, 107, 20, 1) 100%
+  );
+  color: white;
+}
+
 .pokemonInfo {
   margin: 0;
 }
@@ -44,6 +75,31 @@ body {
 
 form {
   display: inline-block;
+}
+
+#message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20%;
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  color: white;
+  text-shadow: 1px 1px 0px rgb(87, 87, 87);
+}
+
+/* #message span {
+    position: relative;
+    top: -4px;
+} */
+
+.correct {
+  background-color: #67ae44;
+}
+
+.incorrect {
+  background-color: #ae4444;
 }
 
 .type {
@@ -68,6 +124,10 @@ form {
   background-color: #f08030;
   box-shadow: -2px 0 0 0 #f08030, 2px 0 0 0 #f08030, 0 -2px 0 0 #f8d030,
     0 2px 0 0 #c03028;
+}
+
+.icon {
+  width: 25px;
 }
 
 .fighting {
@@ -164,4 +224,8 @@ form {
   background-color: #ff65d5;
   box-shadow: -2px 0 0 0 #ff65d5, 2px 0 0 0 #ff65d5, 0 -2px 0 0 #ffc5ff,
     0 2px 0 0 #a26173;
+}
+
+#lives img {
+  width: 30px;
 }
