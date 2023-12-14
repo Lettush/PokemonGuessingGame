@@ -9,11 +9,18 @@ const RandomPokemon = () => {
   const [lives, setLives] = useState();
   const [gamePlayed, setGamePlayed] = useState(false);
 
-  function toTitleCase(str) {
+  const toTitleCase = (str) => {
     return str.replace(/\w\S*/g, function (txt) {
       return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
-  }
+  };
+
+  const startGame = () => {
+    setScore(0);
+    setGameStarted(true);
+    generateRandom();
+    setLives(3);
+  };
 
   const generateRandom = async () => {
     const response = await fetch(
@@ -56,13 +63,13 @@ const RandomPokemon = () => {
       pokemonName.toLowerCase()
     ) {
       setScore(score + 1);
-      message.innerHTML = `<img src="/images/check.png" class="icon" /> <span>Correct! It was ${toTitleCase(
+      message.innerHTML = `<span>Correct! It was ${toTitleCase(
         pokemonName
       )}!</span>`;
       message.classList.add("correct");
       message.classList.remove("incorrect");
     } else {
-      message.innerHTML = `<img src="/images/cross.png" class="icon" /> <span>Incorrect... It was ${toTitleCase(
+      message.innerHTML = `<span>Incorrect... It was ${toTitleCase(
         pokemonName
       )}!</span>`;
       removeLife();
@@ -73,11 +80,6 @@ const RandomPokemon = () => {
     answer.elements["answer"].value = "";
     generateRandom();
   };
-
-  useEffect(() => {
-    generateRandom();
-    setLives(3);
-  }, []);
 
   return (
     <div>
@@ -142,9 +144,7 @@ const RandomPokemon = () => {
           <button
             className={gamePlayed ? "restart" : "start"}
             id="start"
-            onClick={() => {
-              setGameStarted(true);
-            }}
+            onClick={startGame}
           >
             {gamePlayed ? <span>Play again?</span> : <span>Start Game</span>}
           </button>
