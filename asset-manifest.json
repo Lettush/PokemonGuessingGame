@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PokemonGuessingGame/static/css/main.da39e1ed.css",
+    "main.js": "/PokemonGuessingGame/static/js/main.58e99130.js",
+    "static/media/pokemon_pixel_font.ttf": "/PokemonGuessingGame/static/media/pokemon_pixel_font.605ec0cccd9c94a4c3fa.ttf",
+    "static/media/pokemon_pixel_font.woff": "/PokemonGuessingGame/static/media/pokemon_pixel_font.e1d9f493891607b0f287.woff",
+    "index.html": "/PokemonGuessingGame/index.html",
+    "main.da39e1ed.css.map": "/PokemonGuessingGame/static/css/main.da39e1ed.css.map",
+    "main.58e99130.js.map": "/PokemonGuessingGame/static/js/main.58e99130.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da39e1ed.css",
+    "static/js/main.58e99130.js"
+  ]
+}
