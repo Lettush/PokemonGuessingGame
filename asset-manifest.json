@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/PokemonGuessingGame/static/css/main.da39e1ed.css",
+    "main.css": "/PokemonGuessingGame/static/css/main.a11360d7.css",
     "main.js": "/PokemonGuessingGame/static/js/main.aa099317.js",
     "static/media/pokemon_pixel_font.ttf": "/PokemonGuessingGame/static/media/pokemon_pixel_font.605ec0cccd9c94a4c3fa.ttf",
     "static/media/heart.png": "/PokemonGuessingGame/static/media/heart.cbb62edadedccd5e7173.png",
     "static/media/pokemon_pixel_font.woff": "/PokemonGuessingGame/static/media/pokemon_pixel_font.e1d9f493891607b0f287.woff",
     "index.html": "/PokemonGuessingGame/index.html",
-    "main.da39e1ed.css.map": "/PokemonGuessingGame/static/css/main.da39e1ed.css.map",
+    "main.a11360d7.css.map": "/PokemonGuessingGame/static/css/main.a11360d7.css.map",
     "main.aa099317.js.map": "/PokemonGuessingGame/static/js/main.aa099317.js.map"
   },
   "entrypoints": [
-    "static/css/main.da39e1ed.css",
+    "static/css/main.a11360d7.css",
     "static/js/main.aa099317.js"
   ]
 }
