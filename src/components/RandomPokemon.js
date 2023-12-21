@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const RandomPokemon = () => {
   const [pokemonName, setPokemonName] = useState();
@@ -114,9 +114,9 @@ const RandomPokemon = () => {
 
             <div className="gameStats">
               <div id="lives">
-                <img src="/images/heart.webp" />
-                <img src="/images/heart.webp" />
-                <img src="/images/heart.webp" />
+                <img src={require("../images/heart.png")} alt="heart1" />
+                <img src={require("../images/heart.png")} alt="heart2" />
+                <img src={require("../images/heart.png")} alt="heart3" />
               </div>
               <h1 id="score">Score: {score}</h1>
               <form name="guessingForm" onSubmit={checkAnswer}>

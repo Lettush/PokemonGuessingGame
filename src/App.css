@@ -6,6 +6,7 @@
 
 body {
   font-family: Pokemon;
+  font-size: 30px;
   width: 100%;
   height: 100%;
   background-image: url("https://www.wallpaperflare.com/static/933/827/743/pok%C3%A9mon-pixel-art-green-grass-wallpaper.jpg");
@@ -23,6 +24,7 @@ body {
 }
 
 .container {
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -32,12 +34,12 @@ body {
 .container button {
   display: inline-block;
   border-radius: 20px;
-  width: 150px;
+  width: 200px;
   margin: auto;
   font-family: Pokemon;
   border: none;
   padding: 10px;
-  font-size: 20px;
+  font-size: 35px;
 }
 
 .start {
@@ -77,16 +79,42 @@ form {
   display: inline-block;
 }
 
+#score {
+  text-shadow: 1px 1px 0px rgb(87, 87, 87);
+}
+
 #message {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 20%;
+  width: 30%;
   margin: auto;
   margin-bottom: 10px;
   border-radius: 20px;
   color: white;
   text-shadow: 1px 1px 0px rgb(87, 87, 87);
+}
+
+input[type="text"] {
+  width: 300px;
+  font-size: 30px;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  margin: 10px;
+}
+
+input[type="submit"] {
+  width: 120px;
+  font-size: 30px;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+}
+
+::placeholder {
+  color: #6c6c6c;
+  opacity: 1; /* Firefox */
 }
 
 /* #message span {
@@ -106,7 +134,7 @@ form {
   position: relative;
   /* top: -140px; */
   font-family: Pokemon;
-  font-size: 30px;
+  font-size: 50px;
   text-align: center;
   color: white;
   text-shadow: 1px 1px 0px rgb(87, 87, 87);
@@ -227,5 +255,5 @@ form {
 }
 
 #lives img {
-  width: 30px;
+  width: 60px;
 }
